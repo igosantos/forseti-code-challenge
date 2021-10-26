@@ -112,7 +112,7 @@ $dbconnect=mysqli_connect($db_hostname,$db_username,$db_password,$db_name) or di
 $sql_create = "CREATE TABLE IF NOT EXISTS news (datahora DATETIME,titulo TEXT, href varchar(1024) CHARACTER SET utf8 COLLATE utf8_general_ci UNIQUE DEFAULT NULL);";
 
 $query = mysqli_query($dbconnect, $sql_create);
-$query = mysqli_query($dbconnect, "SELECT * FROM news ORDER BY datahora") or die (mysqli_error($dbconnect));
+$query = mysqli_query($dbconnect, "SELECT * FROM news ORDER BY datahora DESC") or die (mysqli_error($dbconnect));
 
 //obtendo artigos
 if(isset($_GET['update']) && $_GET['update'] == "1") {
