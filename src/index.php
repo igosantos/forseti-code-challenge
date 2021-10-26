@@ -123,6 +123,7 @@ if(isset($_GET['update']) && $_GET['update'] == "1") {
     get_articles($dbconnect,'https://www.gov.br/compras/pt-br/acesso-a-informacao/noticias?b_start:int=30');
     get_articles($dbconnect,'https://www.gov.br/compras/pt-br/acesso-a-informacao/noticias?b_start:int=60');
     get_articles($dbconnect,'https://www.gov.br/compras/pt-br/acesso-a-informacao/noticias?b_start:int=90');
+    echo "<p>Conte&uacute;do atualizado.</p>"
 }
 
 //mostrando resultados
