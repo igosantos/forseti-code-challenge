@@ -4,6 +4,9 @@
 <title>foseti-code-challenge</title>
 </head>
 <body>
+<h1>forseti-code-challenge</h1>
+<p>Este repositório é o resultado do teste descrito em https://git-forseti.github.io/forseti-code-challenge/, realizado por Igo Santos <web@igosantos.com>.</p>
+<p>Para atualizar o conte&uacute;udo, <a href="./?update=1">clique aqui.</a>
 
 <?php
 /*
