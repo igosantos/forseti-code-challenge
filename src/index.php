@@ -1,3 +1,10 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>foseti-code-challenge</title>
+</head>
+<body>
+
 <?php
 /*
 
@@ -108,13 +115,15 @@ $query = mysqli_query($dbconnect, $sql_create);
 $query = mysqli_query($dbconnect, "SELECT * FROM news ORDER BY datahora") or die (mysqli_error($dbconnect));
 
 //obtendo artigos
-get_articles($dbconnect,'https://www.gov.br/compras/pt-br/acesso-a-informacao/noticias');
-get_articles($dbconnect,'https://www.gov.br/compras/pt-br/acesso-a-informacao/noticias?b_start:int=30');
-get_articles($dbconnect,'https://www.gov.br/compras/pt-br/acesso-a-informacao/noticias?b_start:int=60');
-get_articles($dbconnect,'https://www.gov.br/compras/pt-br/acesso-a-informacao/noticias?b_start:int=90');
+if(isset($_GET['update']) && $_GET['update'] == "1") {
+    get_articles($dbconnect,'https://www.gov.br/compras/pt-br/acesso-a-informacao/noticias');
+    get_articles($dbconnect,'https://www.gov.br/compras/pt-br/acesso-a-informacao/noticias?b_start:int=30');
+    get_articles($dbconnect,'https://www.gov.br/compras/pt-br/acesso-a-informacao/noticias?b_start:int=60');
+    get_articles($dbconnect,'https://www.gov.br/compras/pt-br/acesso-a-informacao/noticias?b_start:int=90');
+}
 
 //mostrando resultados
-echo "<result>\n";
+echo "<pre>\n";
 while ($row = mysqli_fetch_array($query)) {
   echo"
     <article>
@@ -124,9 +133,12 @@ while ($row = mysqli_fetch_array($query)) {
     </article>
 ";
 }
-echo "</result>\n";
+echo "</pre>\n";
 
 //fechando conexão com banco de dados
 mysqli_close($dbconnect);
 
 ?>
+
+</body>
+</html>
