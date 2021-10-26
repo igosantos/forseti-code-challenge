@@ -1,0 +1,17 @@
+# Teste para desenvolvedor PHP FORSETI #
+Este repositório é o resultado do teste descrito em https://git-forseti.github.io/forseti-code-challenge/, realizado por Igo Santos <web@igosantos.com>.
+
+O objetivo é desenvolver um crawler para ler a página de notícias sobre as compras do governo federal (https://www.gov.br/compras/pt-br/acesso-a-informacao/noticias), e entregá-las em uma interface amigável.
+
+# Requisitos #
+
+ - Usar PHP;
+ - Extrair as informações necessárias (manchete, data/hora e link dos detalhes);
+ - Buscar 5 páginas;
+ - Salvar os dados estruturados em um banco de dados ou num arquivo csv;
+ - Garantir que as notícias não se dupliquem no registro final;
+
+# Como testar o aplicativo #
+
+O app pode ser testado no endereço http://igosantos.com/forseti .
+O código-fonte está disponível em http://igosantos.com/forseti/forseti.tar.gz
