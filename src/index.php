@@ -21,10 +21,17 @@ O código-fonte está disponível em http://igosantos.com/forseti/forseti.tar.gz
 
 */
 
-$db_hostname = "localhost";
-$db_username = "forseti";
-$db_password = "forseti";
-$db_name = "forseti";
+if($_SERVER['USERNAME'] == 'igo') {
+    $db_hostname = "localhost";
+    $db_username = "forseti";
+    $db_password = "forseti";
+    $db_name = "forseti";
+} else {
+    $db_hostname = "mysql.igosantos.com";
+    $db_username = "forseti_igo";
+    $db_password = "forseti123";
+    $db_name = "forseti";    
+}
 
 //obtém os artigos à partir do url, e os insere no banco de dados.
 function get_articles($dbconnect,$url) {
@@ -94,8 +101,10 @@ function get_articles($dbconnect,$url) {
 }
 
 //conectando e criando o banco de dados.
-$dbconnect=mysqli_connect($db_hostname,$db_username,$db_password,$db_name);
-$query = mysqli_query($dbconnect, "CREATE TABLE IF NOT EXISTS news (datahora DATETIME,titulo TEXT,href TEXT UNIQUE)");
+$dbconnect=mysqli_connect($db_hostname,$db_username,$db_password,$db_name) or die(mysqli_error($dbconnect));
+$sql_create = "CREATE TABLE IF NOT EXISTS news (datahora DATETIME,titulo TEXT, href varchar(1024) CHARACTER SET utf8 COLLATE utf8_general_ci UNIQUE DEFAULT NULL);";
+
+$query = mysqli_query($dbconnect, $sql_create);
 $query = mysqli_query($dbconnect, "SELECT * FROM news ORDER BY datahora") or die (mysqli_error($dbconnect));
 
 //obtendo artigos
