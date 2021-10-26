@@ -123,17 +123,19 @@ if(isset($_GET['update']) && $_GET['update'] == "1") {
 }
 
 //mostrando resultados
-echo "<pre>\n";
+echo "<ul>\n";
 while ($row = mysqli_fetch_array($query)) {
-  echo"
-    <article>
-        <datahora>{$row['datahora']}</td>
-        <titulo>{$row['titulo']}</td>
-        <href>{$row['href']}</td>
-    </article>
+    $data = date('d/m/Y',strtotime($row['datahora']));
+    echo "
+        <li>
+            <a href=\"{$row['href']}\">
+            {$row['titulo']}
+            <span>${data}</span>
+            </a>
+        </li>
 ";
 }
-echo "</pre>\n";
+echo "</ul>\n";
 
 //fechando conexão com banco de dados
 mysqli_close($dbconnect);
